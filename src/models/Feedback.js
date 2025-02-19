@@ -2,7 +2,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); 
 
-const Feedback = sequelize.define('Feedback', {
+const Feedback = sequelize.define('feedbacks', {
     service_id: {
         type: DataTypes.INTEGER,
         allowNull: false,

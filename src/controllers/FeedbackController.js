@@ -1,4 +1,3 @@
-// src/controllers/FeedbackController.js
 const { Feedback, Service } = require('../models'); 
 
 const getAllFeedbacks = async (req, res) => {
@@ -12,6 +11,7 @@ const getAllFeedbacks = async (req, res) => {
 };
 
 const addFeedback = async (req, res) => {
+	// console.log(1234);
     const { service_id, staff_code, customer_name, rating_service,rating_space, comment } = req.body;
 
     try {
@@ -64,19 +64,16 @@ const generateQRCode = async (req, res) => {
     try {
         const { staff, staffName, service, serviceName, customer } = req.body;
         
-        // Kiểm tra xem tất cả các tham số có được cung cấp không
         if (!staff || !staffName || !service || !serviceName || !customer) {
             return res.status(400).json({ message: 'Thông tin nhân viên, dịch vụ và khách hàng là bắt buộc!' });
         }
-        const url = `http://localhost:3001/rating?staffCode=${encodeURIComponent(staff)}&staffName=${encodeURIComponent(staffName)}&serviceID=${encodeURIComponent(service)}&serviceName=${encodeURIComponent(serviceName)}&customerName=${encodeURIComponent(customer)}`;
+        const url = `http://ichi.io.vn/?staffCode=${encodeURIComponent(staff)}&staffName=${encodeURIComponent(staffName)}&serviceID=${encodeURIComponent(service)}&serviceName=${encodeURIComponent(serviceName)}&customerName=${encodeURIComponent(customer)}`;
 
         // Tạo mã QR từ URL
         QRCode.toDataURL(url, (err, qrCodeUrl) => {
             if (err) {
                 return res.status(500).json({ message: 'Lỗi khi tạo QR code' });
             }
-
-            // Trả về URL của mã QR
             res.status(200).json({ qrCodeUrl });
         });
     } catch (error) {

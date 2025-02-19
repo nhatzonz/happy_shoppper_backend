@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());  // Cho phép nhận dữ liệu JSON từ client
 
 // Routes
-app.use('/api/feedbacks', feedbackRoutes);  // Định nghĩa route cho feedbacks
+app.use('/api/feedback', feedbackRoutes);  // Định nghĩa route cho feedbacks
 app.listen(5001, () => {
     console.log('Server running on http://localhost:5000');
 });

@@ -4,7 +4,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');  // Cập nhật thông tin kết nối của bạn
 
 // Định nghĩa mô hình Staff
-const Staff = sequelize.define('Staff', {
+const Staff = sequelize.define('staff', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: false,
@@ -32,7 +32,7 @@ const Staff = sequelize.define('Staff', {
     allowNull: false,
   },
 }, {
-  tableName: 'Staff',  // Tên bảng trong cơ sở dữ liệu
+  tableName: 'staff',  // Tên bảng trong cơ sở dữ liệu
   timestamps: false,    // Nếu không sử dụng createdAt, updatedAt
 });
 
